@@ -1,0 +1,16 @@
+Êþº¾   A #   Book   java/lang/Object bookId Ljava/lang/String; title author <init> 9(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V Code
+  
+ 	  ()V	    	     	     LineNumberTable LocalVariableTable this LBook; 	getBookId ()Ljava/lang/String; 	setBookId (Ljava/lang/String;)V getTitle setTitle 	getAuthor 	setAuthor 
+SourceFile 	Book.java !                         	 
+  
+   l     *· *+µ *,µ *-µ ±              	      	    *                                
+   /     *´ °           
+                 
+   >     *+µ ±       
+                             
+   /     *´ °                            
+   >     *+µ ±       
+                              
+   /     *´ °                             
+   >     *+µ ±       
+                          !    "
