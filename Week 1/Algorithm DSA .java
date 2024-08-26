@@ -5,7 +5,7 @@ public class Product {
     private int quantity;
     private double price;
 
-    // Constructor
+  
     public Product(String productId, String productName, int quantity, double price) {
         this.productId = productId;
         this.productName = productName;
@@ -13,7 +13,7 @@ public class Product {
         this.price = price;
     }
 
-    // Getters and Setters
+    
     public String getProductId() {
         return productId;
     }
@@ -56,12 +56,12 @@ public class Inventory {
         inventory = new HashMap<>();
     }
 
-    // Add a product to the inventory
+    
     public void addProduct(Product product) {
         inventory.put(product.getProductId(), product);
     }
 
-    // Update a product in the inventory
+    
     public void updateProduct(Product product) {
         if (inventory.containsKey(product.getProductId())) {
             inventory.put(product.getProductId(), product);
@@ -70,7 +70,7 @@ public class Inventory {
         }
     }
 
-    // Delete a product from the inventory
+    
     public void deleteProduct(String productId) {
         if (inventory.containsKey(productId)) {
             inventory.remove(productId);
@@ -79,7 +79,7 @@ public class Inventory {
         }
     }
 
-    // Retrieve a product from the inventory
+    
     public Product getProduct(String productId) {
         return inventory.get(productId);
     }
@@ -112,14 +112,14 @@ Worst Case: The search does not find the element or finds it at the last positio
     private String productName;
     private String category;
 
-    // Constructor
+  
     public Product(String productId, String productName, String category) {
         this.productId = productId;
         this.productName = productName;
         this.category = category;
     }
 
-    // Getters
+    
     public String getProductId() {
         return productId;
     }
@@ -140,7 +140,7 @@ public class Search {
                 return product;
             }
         }
-        return null; // Product not found
+        return null; 
     }
 }
 import java.util.Arrays;
@@ -149,7 +149,7 @@ import java.util.Comparator;
 public class Search {
 
     public Product binarySearch(Product[] products, String targetId) {
-        // Sort products by productId
+        
         Arrays.sort(products, Comparator.comparing(Product::getProductId));
 
         int left = 0;
@@ -160,20 +160,20 @@ public class Search {
             int comparison = products[mid].getProductId().compareTo(targetId);
 
             if (comparison == 0) {
-                return products[mid]; // Product found
+                return products[mid]; 
             } else if (comparison < 0) {
-                left = mid + 1; // Search in the right half
+                left = mid + 1; 
             } else {
-                right = mid - 1; // Search in the left half
+                right = mid - 1; 
             }
         }
-        return null; // Product not found
+        return null; 
     }
   Suitable Algorithm for the Platform:
 
 Binary Search: For an e-commerce platform, where quick and efficient search operations are essential for a large product database, binary search is more suitable. However, it requires the data to be sorted. If the products are stored in a sorted order by product ID, binary search will provide significantly faster search performance, especially as the dataset grows.
 }
----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   3.
   Bubble Sort:
@@ -189,14 +189,14 @@ Worst Case: O(n²)
     private String customerName;
     private double totalPrice;
 
-    // Constructor
+    
     public Order(String orderId, String customerName, double totalPrice) {
         this.orderId = orderId;
         this.customerName = customerName;
         this.totalPrice = totalPrice;
     }
 
-    // Getters
+    
     public String getOrderId() {
         return orderId;
     }
@@ -216,7 +216,7 @@ public class SortOrders {
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (orders[j].getTotalPrice() > orders[j + 1].getTotalPrice()) {
-                    // Swap orders[j] and orders[j + 1]
+                    
                     Order temp = orders[j];
                     orders[j] = orders[j + 1];
                     orders[j + 1] = temp;
@@ -238,20 +238,20 @@ public class SortOrders {
 
     private int partition(Order[] orders, int low, int high) {
         double pivot = orders[high].getTotalPrice();
-        int i = (low - 1); // Index of smaller element
+        int i = (low - 1); 
 
         for (int j = low; j < high; j++) {
             if (orders[j].getTotalPrice() <= pivot) {
                 i++;
 
-                // Swap orders[i] and orders[j]
+                
                 Order temp = orders[i];
                 orders[i] = orders[j];
                 orders[j] = temp;
             }
         }
 
-        // Swap orders[i + 1] and orders[high] (or pivot)
+      
         Order temp = orders[i + 1];
         orders[i + 1] = orders[high];
         orders[high] = temp;
@@ -277,13 +277,13 @@ Simplicity: Arrays are straightforward to implement and use, making them suitabl
     private Employee[] employees;
     private int size;
 
-    // Constructor
+ 
     public EmployeeManagement(int capacity) {
         employees = new Employee[capacity];
         size = 0;
     }
 
-    // Add an employee
+   
     public void addEmployee(Employee employee) {
         if (size < employees.length) {
             employees[size++] = employee;
@@ -292,17 +292,17 @@ Simplicity: Arrays are straightforward to implement and use, making them suitabl
         }
     }
 
-    // Search for an employee by ID
+   
     public Employee searchEmployee(String employeeId) {
         for (int i = 0; i < size; i++) {
             if (employees[i].getEmployeeId().equals(employeeId)) {
                 return employees[i];
             }
         }
-        return null; // Employee not found
+        return null; 
     }
 
-    // Traverse and print all employees
+    
     public void traverseEmployees() {
         for (int i = 0; i < size; i++) {
             Employee emp = employees[i];
@@ -313,11 +313,11 @@ Simplicity: Arrays are straightforward to implement and use, making them suitabl
         }
     }
 
-    // Delete an employee by ID
+   
     public void deleteEmployee(String employeeId) {
         for (int i = 0; i < size; i++) {
             if (employees[i].getEmployeeId().equals(employeeId)) {
-                // Shift elements to the left to fill the gap
+                
                 for (int j = i; j < size - 1; j++) {
                     employees[j] = employees[j + 1];
                 }
@@ -386,7 +386,7 @@ public class TaskManager {
         head = null;
     }
 
-    // Add a task
+   
     public void addTask(Task task) {
         TaskNode newNode = new TaskNode(task);
         if (head == null) {
@@ -400,7 +400,7 @@ public class TaskManager {
         }
     }
 
-    // Search for a task by ID
+   
     public Task searchTask(String taskId) {
         TaskNode current = head;
         while (current != null) {
@@ -409,7 +409,7 @@ public class TaskManager {
             }
             current = current.next;
         }
-        return null; // Task not found
+        return null; 
     }
 
     // Traverse and print all tasks
@@ -423,12 +423,12 @@ public class TaskManager {
         }
     }
 
-    // Delete a task by ID
+ 
     public void deleteTask(String taskId) {
         if (head == null) return;
 
         if (head.task.getTaskId().equals(taskId)) {
-            head = head.next; // Remove the head
+            head = head.next;
             return;
         }
 
@@ -480,21 +480,21 @@ Disadvantages: Requires the list to be sorted. Inserting or deleting elements ca
 
   public class Library {
 
-    // Linear search by title
+   
     public Book linearSearchByTitle(Book[] books, String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
                 return book;
             }
         }
-        return null; // Book not found
+        return null;
     }
 }
 import java.util.Arrays;
 
 public class Library {
 
-    // Binary search by title (assuming books is sorted by title)
+    
     public Book binarySearchByTitle(Book[] books, String title) {
         int low = 0;
         int high = books.length - 1;
@@ -504,14 +504,14 @@ public class Library {
             int cmp = books[mid].getTitle().compareToIgnoreCase(title);
 
             if (cmp == 0) {
-                return books[mid]; // Book found
+                return books[mid]; 
             } else if (cmp < 0) {
-                low = mid + 1; // Search in the right half
+                low = mid + 1; 
             } else {
-                high = mid - 1; // Search in the left half
+                high = mid - 1; 
             }
         }
-        return null; // Book not found
+        return null; 
     }
 }
  linear search is more flexible and can handle unsorted lists, while binary search is much faster for large, sorted lists. The choice of algorithm should be based on the dataset size, whether the data is sorted, and the frequency of search operations
@@ -522,21 +522,21 @@ public class Library {
    Recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. It involves a function calling itself.
   public class FinancialForecasting {
 
-    // Recursive method to calculate future value
+    
     public double calculateFutureValue(double initialValue, double growthRate, int periods) {
-        // Base case: no more periods left
+       
         if (periods == 0) {
             return initialValue;
         }
-        // Recursive case: calculate the future value for one period
+        
         return calculateFutureValue(initialValue * (1 + growthRate), growthRate, periods - 1);
     }
 
     public static void main(String[] args) {
         FinancialForecasting forecasting = new FinancialForecasting();
-        double initialValue = 1000.0; // Initial investment
-        double growthRate = 0.05; // 5% growth rate per period
-        int periods = 10; // Number of periods
+        double initialValue = 1000.0;
+        double growthRate = 0.05; 
+        int periods = 10; 
 
         double futureValue = forecasting.calculateFutureValue(initialValue, growthRate, periods);
         System.out.println("Future Value: " + futureValue);
